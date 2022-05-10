@@ -1,0 +1,233 @@
+{
+    "data":[
+        {
+            "siteName":"Apple",
+            "info":{
+                "url":"https://www.apple.com/",
+                "searchTerms":[
+                    "iPhone",
+                    "iPad",
+                    "Apple",
+                    "AAPL",
+                    "cell phone stores",
+                    "mac",
+                    "software",
+                    "cell phone",
+                    "computer"
+                ]
+            }
+        },
+        {
+            "siteName":"Microsoft",
+            "info":{
+                "url":"https://www.microsoft.com/en-us/",
+                "searchTerms":[
+                    "MSFT",
+                    "cell phone stores",
+                    "software",
+                    "cell phone",
+                    "computer"
+                ]
+            }
+        },
+        {
+            "siteName":"Towards Data Science",
+            "info":{
+                "url":"https://towardsdatascience.com/",
+                "searchTerms":[
+                    "data science"
+                ]
+            }
+        },
+        {
+            "siteName":"Dataconomy",
+            "info":{
+                "url":"https://dataconomy.com/",
+                "searchTerms":[
+                    "data science"
+                ]
+            }
+        },
+        {
+            "siteName":"Beautiful Data",
+            "info":{
+                "url":"http://beautifuldata.net/",
+                "searchTerms":[
+                    "data science"
+                ]
+            }
+        },
+        {
+            "siteName":"KDNuggets",
+            "info":{
+                "url":"https://www.kdnuggets.com/",
+                "searchTerms":[
+                    "data science"
+                ]
+            }
+        },
+        {
+            "siteName":"The Hacker News",
+            "info":{
+                "url":"https://thehackernews.com/",
+                "searchTerms":[
+                    "cybersecurity",
+                    "cybersecurity news",
+                    "hacker",
+                    "hacking",
+                    "how to be a hacker"
+                ]
+            }
+        },
+        {
+            "siteName":"Wired",
+            "info":{
+                "url":"https://www.wired.com/tag/cybersecurity/",
+                "searchTerms":[
+                    "cybersecurity",
+                    "cybersecurity news",
+                    "hacker",
+                    "hacking",
+                    "how to be a hacker",
+                    "tech news"
+                ]
+            }
+        },
+        {
+            "siteName":"Portswigger",
+            "info":{
+                "url":"https://portswigger.net/",
+                "searchTerms":[
+                    "cybersecurity",
+                    "cybersecurity news",
+                    "hacker",
+                    "hacking",
+                    "how to be a hacker"
+                ]
+            }
+        },
+        {
+            "siteName":"CISA",
+            "info":{
+                "url":"https://www.cisa.gov/",
+                "searchTerms":[
+                    "cybersecurity",
+                    "cybersecurity news",
+                    "hacker",
+                    "hacking",
+                    "how to be a hacker",
+                    "US cybersecurity",
+                    "united states cybersecurity",
+                    "national cybersecurity"
+                ]
+            }
+        },
+        {
+            "siteName":"Avast",
+            "info":{
+                "url":"https://www.avast.com/en-us/index",
+                "searchTerms":[
+                    "cybersecurity",
+                    "cybersecurity news",
+                    "hacker",
+                    "hacking",
+                    "how to be a hacker",
+                    "antivirus"
+                ]
+            }
+        },
+        {
+            "siteName":"Arctic Wolf",
+            "info":{
+                "url":"https://arcticwolf.com/",
+                "searchTerms":[
+                    "cybersecurity",
+                    "cybersecurity news",
+                    "hacker",
+                    "hacking",
+                    "how to be a hacker",
+                    "antivirus"
+                ]
+            }
+        },
+        {
+            "siteName":"Sophos",
+            "info":{
+                "url":"https://www.sophos.com/en-us",
+                "searchTerms":[
+                    "cybersecurity",
+                    "cybersecurity news",
+                    "hacker",
+                    "hacking",
+                    "how to be a hacker",
+                    "antivirus"
+                ]
+            }
+        },
+        {
+            "siteName":"BitDefender",
+            "info":{
+                "url":"https://www.bitdefender.com/",
+                "searchTerms":[
+                    "cybersecurity",
+                    "cybersecurity news",
+                    "hacker",
+                    "hacking",
+                    "how to be a hacker",
+                    "antivirus"
+                ]
+            }
+        },
+        {
+            "siteName":"McAfee",
+            "info":{
+                "url":"https://www.mcafee.com/",
+                "searchTerms":[
+                    "cybersecurity",
+                    "cybersecurity news",
+                    "hacker",
+                    "hacking",
+                    "how to be a hacker",
+                    "antivirus"
+                ]
+            }
+        },
+        {
+            "siteName":"Justin Applegate",
+            "info":{
+                "url":"https://justinapplegate.me/",
+                "searchTerms":[
+                    "cybersecurity",
+                    "cybersecurity news",
+                    "hacker",
+                    "hacking",
+                    "how to be a hacker",
+                    "justin applegate",
+                    "BYU cyberia",
+                    "capture the flag",
+                    "cybersecurity capture the flag",
+                    "cybersecurity CTF"
+                ]
+            }
+        },
+        {
+            "siteName":"BYU Cyberia GitHub",
+            "info":{
+                "url":"https://github.com/BYU-CTF-group",
+                "searchTerms":[
+                    "cybersecurity",
+                    "cybersecurity news",
+                    "hacker",
+                    "hacking",
+                    "how to be a hacker",
+                    "justin applegate",
+                    "BYU cyberia",
+                    "capture the flag",
+                    "cybersecurity capture the flag",
+                    "cybersecurity CTF",
+                    "cybersecurity github"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "data":[
+        {
+            "term":"Software",
+            "sites":[
+                "Apple",
+                "Microsoft"
+            ]
+        },
+        {
+            "term":"Data Science",
+            "sites":[
+                "Towards Data Science",
+                "Dataconomy",
+                "Beautiful Data",
+                "KDNuggets"
+            ]
+        },
+        {
+            "term":"Cybersecurity",
+            "sites":[
+                "The Hacker News",
+                "Wired",
+                "Portswigger",
+                "CISA",
+                "Avast",
+                "Arctic Wolf",
+                "Sophos",
+                "BitDefender",
+                "McAfee",
+                "Justin Applegate",
+                "BYU Cyberia GitHub"
+            ]
+        }
+    ]
+}
