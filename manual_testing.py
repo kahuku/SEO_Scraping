@@ -16,6 +16,9 @@ def toDict(dataList):
         dict[entry["siteName"]] = entry["info"]
     return dict
 
+def lowercase(list):
+    return [entry.lower() for entry in list]
+
 if __name__ == "__main__":
     args = parser.parse_args()
     args.cases = int(args.cases)
@@ -27,6 +30,7 @@ if __name__ == "__main__":
     dataDict = toDict(dataList)
     keys = list(dataDict.keys())
     random.shuffle(keys)
+    lowerKeys = lowercase(keys)
 
     if args.related:
         print("RELATED SEARCHES:")
@@ -54,14 +58,14 @@ if __name__ == "__main__":
     if args.ranking:
         print("RANKINGS:")
         if args.cases == -1:
-            for key in keys:
-                searchTerms = dataDict.get(key)["searchTerms"]
+            for key in lowerKeys:
+                searchTerms = lowercase(dataDict.get(key)["searchTerms"])
                 for searchTerm in searchTerms:
                     scraper = Scraper.BasicScraper(searchTerm)
                     print(scraper.getRanking(key))
         else:
             for i in range(args.cases):
-                searchTerms = dataDict.get(keys[i])["searchTerms"]
+                searchTerms = lowercase(dataDict.get(keys[i])["searchTerms"])
                 for searchTerm in searchTerms:
                     scraper = Scraper.BasicScraper(searchTerm)
-                    print(scraper.getRanking(keys[i]))
+                    print(scraper.getRanking(lowerKeys[i]))
