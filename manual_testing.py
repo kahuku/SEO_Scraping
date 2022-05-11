@@ -29,11 +29,11 @@ if __name__ == "__main__":
         print("RELATED SEARCHES:")
         if args.cases == -1:
             for key in keys:
-                scraper = Scraper.Scraper(key)
+                scraper = Scraper.BasicScraper(key)
                 print(scraper.getRelatedSearches())
         else:
             for i in range(args.cases):
-                scraper = Scraper.Scraper(keys[i])
+                scraper = Scraper.BasicScraper(keys[i])
                 print(scraper.getRelatedSearches())
         print()
 
@@ -41,9 +41,9 @@ if __name__ == "__main__":
         print("SEARCH RESULTS:")
         if args.cases == -1:
             for key in keys:
-                scraper = Scraper.Scraper(key)
+                scraper = Scraper.BasicScraper(key)
                 print(scraper.getSearchResults())
         else:
             for i in range(args.cases):
-                scraper = Scraper.Scraper(keys[i])
+                scraper = Scraper.BasicScraper(keys[i])
                 print(scraper.getSearchResults())

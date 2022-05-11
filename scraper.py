@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 
 BASE_URL = "https://www.google.com/search?q="
 BOTTOM_ID = "botstuff"
@@ -26,7 +27,7 @@ def getSearchesFromLinks(links):
 def getNonGoogleLinks(links):
     return [link for link in links if not "google" in link]
 
-class Scraper:
+class BasicScraper:
     def __init__(self, keyword):
         self.keyword = keyword
         self.url = self.getURL()
@@ -51,17 +52,17 @@ class Scraper:
         div = self.soup.find("div", id=id)
         aTags = div.find_all("a")
         links = []
-        for link in aTags:
+        for a in aTags:
             try:
-                if link["href"][0] == "/":
-                    links.append(GOOGLE_BASE_URL + link["href"])
-                elif link["href"][0] == "#":
+                if a["href"][0] == "/":
+                    links.append(GOOGLE_BASE_URL + a["href"])
+                elif a["href"][0] == "#":
                     pass
-                else:
-                    links.append(link["href"])
+                elif a["href"] not in links:
+                    links.append(a["href"])
             except Exception as e:
                 pass
-        return list(set(links))
+        return links
 
     def getRelatedSearches(self):
         links = self.getLinks(BOTTOM_ID)
@@ -71,9 +72,31 @@ class Scraper:
     def getSearchResults(self):
         return getNonGoogleLinks(self.getLinks(BODY_ID))
 
+    def formatRanking(self, site, rank, result=None):
+        site = site[0].upper() + site[1:]
+        if (rank > 0):
+            return site + "'s ranking for search term '" + keyword + "': " + str(rank) + " (" + result + ")"
+        else:
+            return site + " does not appear in the search results for search term '" + keyword + "'"
+
+    def getRanking(self, site):
+        searchResults = self.getSearchResults()
+        i = 1
+        for result in searchResults:
+            domains = re.search('https?://([A-Za-z_0-9.-]+).*', result).group(1)
+            if site in domains:
+                return self.formatRanking(site, i, result)
+            i += 1
+        return self.formatRanking(site, -1)
+
 if __name__ == "__main__":
-    keyword = input("Keyword: ")
-    scraper = Scraper(keyword)
+    keyword = input("Keyword: ").lower()
+    site = input("Site: ").lower()
+
+    scraper = BasicScraper(keyword)
+
     print(scraper.getRelatedSearches())
     print()
-    scraper.getSearchResults()
+    print(scraper.getSearchResults())
+    print()
+    print(scraper.getRanking(site))
