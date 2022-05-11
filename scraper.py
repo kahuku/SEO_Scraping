@@ -61,7 +61,7 @@ class Scraper:
                     links.append(link["href"])
             except Exception as e:
                 pass
-        return links
+        return list(set(links))
 
     def getRelatedSearches(self):
         links = self.getLinks(BOTTOM_ID)
