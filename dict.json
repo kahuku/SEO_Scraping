@@ -31,11 +31,12 @@
             }
         },
         {
-            "siteName":"Towards Data Science",
+            "siteName":"TowardsDataScience",
             "info":{
                 "url":"https://towardsdatascience.com/",
                 "searchTerms":[
-                    "data science"
+                    "data science",
+                    "towards data science"
                 ]
             }
         },
@@ -44,16 +45,19 @@
             "info":{
                 "url":"https://dataconomy.com/",
                 "searchTerms":[
-                    "data science"
+                    "data science",
+                    "dataconomy"
                 ]
             }
         },
         {
-            "siteName":"Beautiful Data",
+            "siteName":"BeautifulData",
             "info":{
                 "url":"http://beautifuldata.net/",
                 "searchTerms":[
-                    "data science"
+                    "data science",
+                    "beautiful data",
+                    "beautifuldata"
                 ]
             }
         },
@@ -62,12 +66,14 @@
             "info":{
                 "url":"https://www.kdnuggets.com/",
                 "searchTerms":[
-                    "data science"
+                    "data science",
+                    "kdnuggets",
+                    "kd nuggets"
                 ]
             }
         },
         {
-            "siteName":"The Hacker News",
+            "siteName":"TheHackerNews",
             "info":{
                 "url":"https://thehackernews.com/",
                 "searchTerms":[
@@ -75,7 +81,9 @@
                     "cybersecurity news",
                     "hacker",
                     "hacking",
-                    "how to be a hacker"
+                    "how to be a hacker",
+                    "hacker news",
+                    "the hacker news"
                 ]
             }
         },
@@ -89,7 +97,9 @@
                     "hacker",
                     "hacking",
                     "how to be a hacker",
-                    "tech news"
+                    "tech news",
+                    "wired",
+                    "tech magazine"
                 ]
             }
         },
@@ -102,7 +112,8 @@
                     "cybersecurity news",
                     "hacker",
                     "hacking",
-                    "how to be a hacker"
+                    "how to be a hacker",
+                    "portswigger"
                 ]
             }
         },
@@ -118,7 +129,8 @@
                     "how to be a hacker",
                     "US cybersecurity",
                     "united states cybersecurity",
-                    "national cybersecurity"
+                    "national cybersecurity",
+                    "cisa"
                 ]
             }
         },
@@ -132,12 +144,15 @@
                     "hacker",
                     "hacking",
                     "how to be a hacker",
-                    "antivirus"
+                    "antivirus",
+                    "avast",
+                    "avast one",
+                    "avast cost"
                 ]
             }
         },
         {
-            "siteName":"Arctic Wolf",
+            "siteName":"ArcticWolf",
             "info":{
                 "url":"https://arcticwolf.com/",
                 "searchTerms":[
@@ -146,7 +161,8 @@
                     "hacker",
                     "hacking",
                     "how to be a hacker",
-                    "antivirus"
+                    "antivirus",
+                    "arctic wolf"
                 ]
             }
         },
@@ -160,7 +176,8 @@
                     "hacker",
                     "hacking",
                     "how to be a hacker",
-                    "antivirus"
+                    "antivirus",
+                    "sophos"
                 ]
             }
         },
@@ -174,7 +191,9 @@
                     "hacker",
                     "hacking",
                     "how to be a hacker",
-                    "antivirus"
+                    "antivirus",
+                    "bit defender",
+                    "bitdefender"
                 ]
             }
         },
@@ -188,12 +207,13 @@
                     "hacker",
                     "hacking",
                     "how to be a hacker",
-                    "antivirus"
+                    "antivirus",
+                    "mcafee"
                 ]
             }
         },
         {
-            "siteName":"Justin Applegate",
+            "siteName":"JustinApplegate",
             "info":{
                 "url":"https://justinapplegate.me/",
                 "searchTerms":[
@@ -206,12 +226,14 @@
                     "BYU cyberia",
                     "capture the flag",
                     "cybersecurity capture the flag",
-                    "cybersecurity CTF"
+                    "cybersecurity CTF",
+                    "justin applegate",
+                    "justin applegate byu"
                 ]
             }
         },
         {
-            "siteName":"BYU Cyberia GitHub",
+            "siteName":"BYUCyberiaGitHub",
             "info":{
                 "url":"https://github.com/BYU-CTF-group",
                 "searchTerms":[

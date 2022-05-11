@@ -75,18 +75,22 @@ class BasicScraper:
     def formatRanking(self, site, rank, result=None):
         site = site[0].upper() + site[1:]
         if (rank > 0):
-            return site + "'s ranking for search term '" + keyword + "': " + str(rank) + " (" + result + ")"
+            return site + "'s ranking for search term '" + self.keyword + "': " + str(rank) + " (" + result + ")"
         else:
-            return site + " does not appear in the search results for search term '" + keyword + "'"
+            return site + " does not appear in the search results for search term '" + self.keyword + "'"
 
     def getRanking(self, site):
         searchResults = self.getSearchResults()
         i = 1
         for result in searchResults:
-            domains = re.search('https?://([A-Za-z_0-9.-]+).*', result).group(1)
-            if site in domains:
-                return self.formatRanking(site, i, result)
-            i += 1
+            try:
+                domains = re.search('https?://([A-Za-z_0-9.-]+).*', result).group(1)
+                if site in domains:
+                    return self.formatRanking(site, i, result)
+                i += 1
+            except AttributeError as e:
+                pass
+                # print(e)
         return self.formatRanking(site, -1)
 
 if __name__ == "__main__":
