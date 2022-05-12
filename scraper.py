@@ -12,7 +12,7 @@ BOTTOM_ID = "botstuff"
 BODY_ID = "center_col"
 GOOGLE_BASE_URL = "https://www.google.com"
 
-parser = argparse.ArgumentParser("python3 manual_tsting.py")
+parser = argparse.ArgumentParser("python3 scraper.py")
 parser.add_argument('--user-agent', default="Random",
                     help="User agent to send in the web request. 'Random' for random order"
                          " of preset user agents, 'Rotate' for rotating order")
@@ -167,7 +167,10 @@ if __name__ == "__main__":
 
     print(scraper.getRelatedSearches())
     print()
-    print(scraper.getSearchResults())
-    print(len(scraper.getSearchResults()))
+
+    searchResults = scraper.getSearchResults()
+    print(searchResults)
+    print(len(searchResults))
     print()
+
     print(scraper.getRanking(site))
