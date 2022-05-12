@@ -104,17 +104,21 @@ class BasicScraper:
         links = []
         for soup in self.soups:
             div = soup.find("div", id=id)
-            aTags = div.find_all("a")
-            for a in aTags:
-                try:
-                    if a["href"][0] == "/":
-                        links.append(GOOGLE_BASE_URL + a["href"])
-                    elif a["href"][0] == "#":
+            if div is not None:
+                aTags = div.find_all("a")
+                for a in aTags:
+                    try:
+                        if a["href"][0] == "/":
+                            links.append(GOOGLE_BASE_URL + a["href"])
+                        elif a["href"][0] == "#":
+                            pass
+                        elif a["href"] not in links:
+                            links.append(a["href"])
+                    except Exception as e:
                         pass
-                    elif a["href"] not in links:
-                        links.append(a["href"])
-                except Exception as e:
-                    pass
+            else:
+                # print(soup)
+                pass
         return links
 
     def getRelatedSearches(self):
