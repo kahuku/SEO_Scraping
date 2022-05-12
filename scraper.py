@@ -89,7 +89,15 @@ class BasicScraper:
 
     def getSoup(self, url):
         userAgent = getUserAgent()
-        headers = {"User-Agent": userAgent}
+        headers = {"user-agent": userAgent,
+                   "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/"
+                             "avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                   "accept-encoding": "gzip, deflate, br",
+                   "accept-language": "en-US,en;q=0.9,vi;q=0.8",
+                   "referer": "https://www.google.com/",
+                   "sec-fetch-dest": "iframe",
+                   'dnt': '1',
+                   'sec-fetch-user': '?1'}
         content = requests.get(url, headers=headers).text
         return BeautifulSoup(content, "html.parser")
 

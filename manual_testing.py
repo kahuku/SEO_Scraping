@@ -69,6 +69,9 @@ if __name__ == "__main__":
             for i in range(args.cases):
                 searchTerms = lowercase(dataDict.get(keys[i])["searchTerms"])
                 for searchTerm in searchTerms:
-                    scraper = Scraper.BasicScraper(searchTerm, args.pages)
-                    print(scraper.getRanking(lowerKeys[i]))
+                    try:
+                        scraper = Scraper.BasicScraper(searchTerm, args.pages)
+                        print(scraper.getRanking(lowerKeys[i]))
+                    except UserWarning as warning:
+                        print("Error on", searchTerm, lowerKeys[i])
                 print()
