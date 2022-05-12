@@ -7,7 +7,7 @@ PAGE_URL = "&start="
 BOTTOM_ID = "botstuff"
 BODY_ID = "center_col"
 GOOGLE_BASE_URL = "https://www.google.com"
-PAGES = 2
+PAGES = 5
 
 def getSearchesFromLinks(links):
     searches = []
@@ -30,40 +30,59 @@ def getNonGoogleLinks(links):
     return [link for link in links if not "google" in link]
 
 class BasicScraper:
-    def __init__(self, keyword):
+    def __init__(self, keyword, pages=PAGES):
         self.keyword = keyword
-        self.url = self.getURL()
-        self.soup = self.getSoup()
+        self.pages = pages
+        self.urls = self.getURLs()
+        self.soups = self.getSoups()
 
-    def getURL(self):
+    def setPages(self, pages):
+        self.pages = pages
+
+    def getURL(self, page):
         keywords = self.keyword.split(" ")
         url = BASE_URL
         for i in range(len(keywords)):
             url += keywords[i]
             if i < len(keywords) - 1:
                 url += "+"
+        url += PAGE_URL
+        url += str(10 * page)
         return url
 
-    def getSoup(self):
+    def getURLs(self):
+        urls = []
+        for i in range(self.pages):
+            urls.append(self.getURL(i))
+        return urls
+
+    def getSoup(self, url):
         headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, "
                                  "like Gecko) Chrome/101.0.4951.54 Safari/537.36"}
-        content = requests.get(self.url, headers=headers).text
+        content = requests.get(url, headers=headers).text
         return BeautifulSoup(content, "html.parser")
 
+    def getSoups(self):
+        soups = []
+        for i in range(len(self.urls)):
+            soups.append(self.getSoup(self.urls[i]))
+        return soups
+
     def getLinks(self, id):
-        div = self.soup.find("div", id=id)
-        aTags = div.find_all("a")
         links = []
-        for a in aTags:
-            try:
-                if a["href"][0] == "/":
-                    links.append(GOOGLE_BASE_URL + a["href"])
-                elif a["href"][0] == "#":
+        for soup in self.soups:
+            div = soup.find("div", id=id)
+            aTags = div.find_all("a")
+            for a in aTags:
+                try:
+                    if a["href"][0] == "/":
+                        links.append(GOOGLE_BASE_URL + a["href"])
+                    elif a["href"][0] == "#":
+                        pass
+                    elif a["href"] not in links:
+                        links.append(a["href"])
+                except Exception as e:
                     pass
-                elif a["href"] not in links:
-                    links.append(a["href"])
-            except Exception as e:
-                pass
         return links
 
     def getRelatedSearches(self):
@@ -104,5 +123,6 @@ if __name__ == "__main__":
     print(scraper.getRelatedSearches())
     print()
     print(scraper.getSearchResults())
+    print(len(scraper.getSearchResults()))
     print()
     print(scraper.getRanking(site))
