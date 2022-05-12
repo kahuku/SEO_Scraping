@@ -5,7 +5,6 @@ import argparse
 import json
 import random
 import sys
-import traceback
 
 BASE_URL = "https://www.google.com/search?q="
 PAGE_URL = "&start="
