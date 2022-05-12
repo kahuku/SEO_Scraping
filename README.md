@@ -4,4 +4,3 @@
 * Protection from getting blocked
   * delaying speed
   * rotating proxies
-  * 
