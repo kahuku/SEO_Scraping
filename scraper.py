@@ -3,9 +3,11 @@ from bs4 import BeautifulSoup
 import re
 
 BASE_URL = "https://www.google.com/search?q="
+PAGE_URL = "&start="
 BOTTOM_ID = "botstuff"
 BODY_ID = "center_col"
 GOOGLE_BASE_URL = "https://www.google.com"
+PAGES = 2
 
 def getSearchesFromLinks(links):
     searches = []
