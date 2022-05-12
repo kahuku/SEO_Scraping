@@ -1,13 +1,23 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+import argparse
+import json
+import random
+import sys
+import traceback
 
 BASE_URL = "https://www.google.com/search?q="
 PAGE_URL = "&start="
 BOTTOM_ID = "botstuff"
 BODY_ID = "center_col"
 GOOGLE_BASE_URL = "https://www.google.com"
-PAGES = 5
+
+parser = argparse.ArgumentParser("python3 manual_tsting.py")
+parser.add_argument('--user-agent', default="Random",
+                    help="User agent to send in the web request. 'Random' for random order"
+                         " of preset user agents, 'Rotate' for rotating order")
+parser.add_argument('--pages', default=2, help="Number of pages of search results to scrape")
 
 def getSearchesFromLinks(links):
     searches = []
@@ -29,12 +39,34 @@ def getSearchesFromLinks(links):
 def getNonGoogleLinks(links):
     return [link for link in links if not "google" in link]
 
+def getUserAgent():
+    index = BasicScraper.getIndex()
+    agents = []
+    with open("user_agents.json") as data:
+        agents = json.load(data)["data"]
+    agent = agents[index % len(agents)]
+    # print(agent)
+    return agent
+
 class BasicScraper:
-    def __init__(self, keyword, pages=PAGES):
+    index = -1
+
+    def __init__(self, keyword, pages):
         self.keyword = keyword
         self.pages = pages
         self.urls = self.getURLs()
         self.soups = self.getSoups()
+
+    @staticmethod
+    def getIndex():
+        if 'args' in locals():
+            if args.user_agent == "Random":
+                return random.randint(0, sys.maxsize)
+            else:
+                BasicScraper.index += 1
+                return BasicScraper.index
+        else:
+            return random.randint(0, sys.maxsize)
 
     def setPages(self, pages):
         self.pages = pages
@@ -57,8 +89,8 @@ class BasicScraper:
         return urls
 
     def getSoup(self, url):
-        headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, "
-                                 "like Gecko) Chrome/101.0.4951.54 Safari/537.36"}
+        userAgent = getUserAgent()
+        headers = {"User-Agent": userAgent}
         content = requests.get(url, headers=headers).text
         return BeautifulSoup(content, "html.parser")
 
@@ -115,10 +147,12 @@ class BasicScraper:
         return self.formatRanking(site, -1)
 
 if __name__ == "__main__":
+    args = parser.parse_args()
+
     keyword = input("Keyword: ").lower()
     site = input("Site: ").lower()
 
-    scraper = BasicScraper(keyword)
+    scraper = BasicScraper(keyword, args.pages)
 
     print(scraper.getRelatedSearches())
     print()
